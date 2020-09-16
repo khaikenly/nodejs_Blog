@@ -22,12 +22,17 @@ app.set('views',path.join(__dirname,'resources/views'));
 //console.log('PATH: ',path.join(__dirname,'resources/views'));
 
 app.get('/', (req, res) => {
-  res.render('home');       //render view home vào renderbody(main.handle)
-})
+  res.render('home');       //render view home vào renderbody(main.handle), sử dụng engine của handlebars
+});
 
 app.get('/news', (req, res) => {
   res.render('news');       //render view news vào renderbody(main.handle)
-})
+});
+
+app.get('/search',(req,res) => {
+  console.log(req.query.ref);
+  res.render('search');
+});
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
